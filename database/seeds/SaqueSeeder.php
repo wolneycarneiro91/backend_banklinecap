@@ -13,7 +13,8 @@ class SaqueSeeder extends Seeder
     {
         DB::table('saques')->insert([
             'conta_corrente_id' => 1,
-            'valor_saque' => 100                      
+            'valor_saque' => 100,       
+            'created_at' =>'2020-11-18 00:00:02'                      
         ]);           
     }
 }

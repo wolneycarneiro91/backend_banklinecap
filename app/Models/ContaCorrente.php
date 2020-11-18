@@ -10,16 +10,17 @@ use Illuminate\Database\Eloquent\Model;
 class ContaCorrente extends Model
 {
     protected $fillable =[
+        'id',
         'AG',
         'CC',
-        'senha',
+        'cliente_id',
+        'saldo'        
     ];
 
     public function rules(){
         return [
             'AG' => 'required|unique:conta_correntes',
-            'CC' => 'required|unique:conta_correntes',
-            'senha' => 'required'                     
+            'CC' => 'required|unique:conta_correntes'                              
         ];
 
     }   
@@ -31,5 +32,6 @@ class ContaCorrente extends Model
     }      
     public function saque(){
         return $this->hasMany(Saque::class,'conta_corrente_id','id');
-    }      
+    }  
+        
 }

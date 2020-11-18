@@ -8,6 +8,7 @@ Route::get('clientes/{id}/contas','Api\ClienteApiController@conta_corrente');
 Route::get('contas/{id}/clientes','Api\ContaCorrenteApiController@cliente');
 Route::get('contas/{id}/depositos','Api\ContaCorrenteApiController@deposito');
 Route::get('contas/{id}/saques','Api\ContaCorrenteApiController@saque');
+//Route::put('contas/{id}','Api\ContaCorrenteApiController');
 Route::resource('contas','Api\ContaCorrenteApiController');
 //Depositos
 Route::resource('depositos','Api\DepositoApiController');

@@ -36,11 +36,10 @@ class MasterApiController extends BaseController
     }
 
     public function update(Request $request, $id)
-    {
+    {                          
         if (!$data = $this->model->find($id)) {
             return response()->json(['error' => 'Registro não encontrado'], 404);
-        }
-        $this->validate($request, $this->model->rules());
+        }               
         $dataForm = $request->all();
         $data->update($dataForm);
         return response()->json($data);
