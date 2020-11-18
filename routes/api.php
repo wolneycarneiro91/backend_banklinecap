@@ -4,7 +4,10 @@
 //Cliente
 Route::resource('clientes','Api\ClienteApiController');
 Route::get('clientes/{id}/contas','Api\ClienteApiController@conta_corrente');
+
 //CC
+Route::get('contas/{id}','Api\ContaCorrenteApiController@show');
+Route::get('contas_cc/{campo}/{valor}','Api\ContaCorrenteApiController@search');
 Route::get('contas/{id}/clientes','Api\ContaCorrenteApiController@cliente');
 Route::get('contas/{id}/depositos','Api\ContaCorrenteApiController@deposito');
 Route::get('contas/{id}/saques','Api\ContaCorrenteApiController@saque');
