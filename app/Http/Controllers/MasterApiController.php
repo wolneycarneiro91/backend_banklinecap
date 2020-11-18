@@ -22,25 +22,30 @@ class MasterApiController extends BaseController
     public function store(Request $request)
     {
         $this->validate($request, $this->model->rules());
-        $dataForm = $request->all();
+        $dataForm = $request->all();       
         $data = $this->model->create($dataForm);
         return response()->json($data, 201);
     }
 
     public function show($id)
-    {
-        if (!$data = $this->model->find($id)) {
+    {                       
+        if (!$data = $this->model->find($id)) {          
             return response()->json(['error' => 'Registro não encontrado'], 404);
         }
         return response()->json($data);
     }
 
-    public function update(Request $request, $id)
-    {
-        if (!$data = $this->model->find($id)) {
+    public function search($campo,$valor){
+        if (!$data = $this->model::where($campo,$valor)->get()) {
             return response()->json(['error' => 'Registro não encontrado'], 404);
         }
-        $this->validate($request, $this->model->rules());
+        return response()->json($data);
+    }
+    public function update(Request $request, $id)
+    {                          
+        if (!$data = $this->model->find($id)) {
+            return response()->json(['error' => 'Registro não encontrado'], 404);
+        }               
         $dataForm = $request->all();
         $data->update($dataForm);
         return response()->json($data);

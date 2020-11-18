@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Saque extends Model
 {
     protected $fillable =[
+        'conta_corrente_id',
         'valor_saque'
     ];
 

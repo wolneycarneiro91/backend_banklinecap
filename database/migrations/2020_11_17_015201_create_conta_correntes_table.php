@@ -15,6 +15,7 @@ class CreateContaCorrentesTable extends Migration
                 ->on('clientes');
             $table->string('AG')->comment('número da agência');
             $table->string('CC')->comment('número da conta corrente');            
+            $table->decimal('saldo',10,2);
             $table->timestamps();
         });
     }
