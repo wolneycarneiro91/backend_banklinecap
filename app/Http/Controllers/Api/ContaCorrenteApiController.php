@@ -30,5 +30,5 @@ class ContaCorrenteApiController extends MasterApiController
             return response()->json(['error'=>'Saque não encontrado'],401);
         }
         return response()->json($data);
-    }     
+    }         
 }
